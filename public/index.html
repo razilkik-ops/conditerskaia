@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lumière Pâtisserie - авторские десерты и торты</title>
+    <meta name="description" content="Авторские десерты, коллекции и торты на заказ в нежной эстетике Lumière Pâtisserie." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="kiosk-body">
+    <header class="top-console" data-header>
+      <a class="logo-chip" href="/" aria-label="Lumiere Patisserie">
+        <span class="logo-word">Lumière</span>
+        <small>Pâtisserie</small>
+      </a>
+      <nav class="route-tabs" aria-label="Основная навигация">
+        <a href="#collections">Коллекции</a>
+        <a href="#cakes">Торты на заказ</a>
+        <a href="#checkout">Доставка</a>
+        <a href="#about">О нас</a>
+        <a href="#account">Кабинет</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="top-actions">
+        <button class="bag-icon" type="button" data-open-cart aria-label="Открыть корзину">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 9V7a5 5 0 0 1 10 0v2" />
+            <path d="M5 9h14l-1 11H6L5 9Z" />
+          </svg>
+          <span data-cart-count>0</span>
+        </button>
+        <a class="action-button hot" href="#cakes">Собрать торт</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="launch-screen">
+        <div class="launch-copy">
+          <h1>Кондитерская нового вкуса</h1>
+          <p class="lead-text">Авторские десерты и торты ручной работы из лучших ингредиентов для особенных моментов.</p>
+          <div class="action-row">
+            <a class="action-button hot" href="#collections">Смотреть коллекции</a>
+            <a class="inspiration-link" href="#about" aria-label="Наше вдохновение">
+              <span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5V7Z" /></svg>
+              </span>
+              Наше вдохновение
+            </a>
+          </div>
+          <div class="delivery-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17h10M8 17a3 3 0 1 1-3-3m11 3a3 3 0 1 0 3-3M5 14V8h9v6M14 11h4l2 3" /></svg>
+            Доставка по городу от 2 часов
+          </div>
+        </div>
+      </section>
+
+      <section class="collections-panel" id="collections">
+        <div class="section-heading centered">
+          <h2>Авторские коллекции</h2>
+          <p>Изысканные сочетания вкусов и эстетики</p>
+        </div>
+        <div class="collection-nav" aria-hidden="true">
+          <button type="button">‹</button>
+          <button type="button">›</button>
+        </div>
+        <div class="collections-grid">
+          <article class="collection-card spring">
+            <span>Весенняя коллекция</span>
+            <small>8 десертов</small>
+          </article>
+          <article class="collection-card berry">
+            <span>Ягодная симфония</span>
+            <small>6 десертов</small>
+          </article>
+          <article class="collection-card chocolate">
+            <span>Шоколадная линия</span>
+            <small>7 десертов</small>
+          </article>
+          <article class="collection-card wedding">
+            <span>Свадебная коллекция</span>
+            <small>12 десертов</small>
+          </article>
+        </div>
+
+        <div class="promise-strip">
+          <article>
+            <span class="promise-icon leaf"></span>
+            <div>
+              <strong>Натуральные ингредиенты</strong>
+              <p>Только отборные продукты премиального качества</p>
+            </div>
+          </article>
+          <article>
+            <span class="promise-icon hand"></span>
+            <div>
+              <strong>Ручная работа</strong>
+              <p>Каждый десерт создается с вниманием к деталям</p>
+            </div>
+          </article>
+          <article>
+            <span class="promise-icon truck"></span>
+            <div>
+              <strong>Быстрая доставка</strong>
+              <p>Аккуратная упаковка и бережная перевозка</p>
+            </div>
+          </article>
+          <article>
+            <span class="promise-icon cake"></span>
+            <div>
+              <strong>Торты на заказ</strong>
+              <p>Индивидуальный дизайн для особенных событий</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-copy">
+          <p class="micro-label">О нас</p>
+          <h2>Мы создаем моменты сладкого совершенства</h2>
+          <p>Вдохновляемся природой, искусством и вашими историями, чтобы создавать десерты, которые не только радуют вкусом, но и запоминаются.</p>
+          <a class="soft-button" href="#contacts">Подробнее о нас</a>
+        </div>
+        <img src="/assets/lumiere-boutique.jpg" alt="Интерьер пастельной кондитерской Lumière" />
+      </section>
+
+      <section class="catalog-deck" id="popular">
+        <div class="deck-heading">
+          <div>
+            <h2>Популярное</h2>
+            <p>Десерты на выбранную дату</p>
+          </div>
+          <a href="#cakes">Смотреть все</a>
+        </div>
+        <div class="date-module">
+          <label for="dessert-date">Дата самовывоза</label>
+          <input id="dessert-date" type="date" data-dessert-date />
+        </div>
+        <div class="load-panel" data-products-state>Загружаем десерты...</div>
+        <div class="shelf-grid" data-desserts-grid></div>
+      </section>
+
+      <section class="testimonial-band">
+        <div class="quote-mark">“</div>
+        <blockquote>Лучшие десерты, которые мы когда-либо пробовали! Идеальный вкус, оформление и сервис.</blockquote>
+        <div class="quote-author">
+          <strong>Анна и Дмитрий</strong>
+          <span>Свадьба, 25.04.2024</span>
+        </div>
+        <div class="quote-controls" aria-hidden="true">
+          <button type="button">‹</button>
+          <button type="button">›</button>
+        </div>
+      </section>
+
+      <section class="account-section" id="account">
+        <div class="account-intro">
+          <p class="micro-label">Личный кабинет</p>
+          <h2>Ваши заказы и статусы</h2>
+          <p>Зарегистрируйтесь или войдите, чтобы видеть историю заказов, оплату и текущий этап приготовления.</p>
+        </div>
+
+        <div class="account-grid">
+          <div class="account-auth" data-account-auth>
+            <div class="account-tabs" role="tablist" aria-label="Вход или регистрация">
+              <button class="active" type="button" data-account-tab="login">Вход</button>
+              <button type="button" data-account-tab="register">Регистрация</button>
+            </div>
+
+            <form class="account-form" data-login-form-public>
+              <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
+              <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
+              <p class="form-message" data-account-message></p>
+              <button class="action-button hot wide" type="submit">Войти</button>
+            </form>
+
+            <form class="account-form hidden" data-register-form>
+              <label>Имя<input name="name" required minlength="2" placeholder="Анна" /></label>
+              <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
+              <label>Телефон<input name="phone" required placeholder="+375 29 123-45-67" /></label>
+              <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
+              <p class="form-message" data-register-message></p>
+              <button class="action-button hot wide" type="submit">Создать аккаунт</button>
+            </form>
+          </div>
+
+          <div class="account-panel hidden" data-account-panel>
+            <div class="account-profile">
+              <div>
+                <p class="micro-label">Профиль</p>
+                <h3 data-account-name>Гость</h3>
+                <span data-account-email></span>
+              </div>
+              <button class="soft-button" type="button" data-account-logout>Выйти</button>
+            </div>
+            <div class="account-content">
+              <section class="account-cart">
+                <div class="account-subhead">
+                  <h4>Корзина</h4>
+                  <strong data-account-cart-total>0 BYN</strong>
+                </div>
+                <div class="account-cart-items" data-account-cart-items></div>
+                <div class="load-panel" data-account-cart-empty>Корзина пока пустая.</div>
+                <a class="action-button hot wide" href="#checkout">Оформить заказ</a>
+              </section>
+              <section class="account-orders">
+                <div class="account-subhead">
+                  <h4>История заказов</h4>
+                  <button class="soft-button" type="button" data-refresh-orders>Обновить</button>
+                </div>
+                <div class="orders-list" data-account-orders>
+                  <div class="load-panel">Загружаем историю заказов...</div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="builder-deck" id="cakes">
+        <div class="deck-heading stacked">
+          <p class="micro-label">Торты на заказ</p>
+          <h2>Соберите торт для вашего события</h2>
+          <p>Выберите вес, начинку, декор и дату. Цена обновится до добавления в корзину.</p>
+        </div>
+        <div class="shelf-grid cake-grid" data-cakes-grid></div>
+      </section>
+
+      <section class="payment-zone" id="checkout">
+        <div class="terminal-card">
+          <p class="micro-label">Доставка</p>
+          <h2>Оформите заказ</h2>
+          <p>После создания заказа откроется онлайн-оплата, а подтверждение появится сразу после успешного платежа.</p>
+        </div>
+        <form class="order-form" data-checkout-form>
+          <div class="form-row">
+            <label>Имя<input name="customerName" required minlength="2" placeholder="Анна" /></label>
+            <label>Email<input name="customerEmail" required type="email" placeholder="anna@mail.com" /></label>
+          </div>
+          <div class="form-row">
+            <label>Телефон<input name="customerPhone" required placeholder="+375 29 123-45-67" /></label>
+            <label>Дата и время<input name="pickupDateTime" required type="datetime-local" /></label>
+          </div>
+          <div class="choice-switch" role="group" aria-label="Способ получения">
+            <label><input type="radio" name="fulfillmentType" value="PICKUP" checked /> Самовывоз</label>
+            <label><input type="radio" name="fulfillmentType" value="DELIVERY" /> Доставка</label>
+          </div>
+          <label data-address-field class="hidden">Адрес доставки<input name="deliveryAddress" placeholder="Улица, дом, подъезд" /></label>
+          <label>Комментарий<textarea name="comment" rows="4" placeholder="Свечи, надпись, удобный интервал..."></textarea></label>
+          <div class="total-console">
+            <span>Итого</span>
+            <strong data-checkout-total>0 BYN</strong>
+          </div>
+          <p class="form-message" data-checkout-message></p>
+          <button class="action-button hot wide" type="submit">Оплатить онлайн</button>
+        </form>
+      </section>
+    </main>
+
+    <aside class="bag-overlay" data-cart-drawer aria-hidden="true">
+      <div class="bag-panel">
+        <div class="bag-head">
+          <div>
+            <p class="micro-label">Ваш заказ</p>
+            <h2>Корзина</h2>
+          </div>
+          <button class="close-orb" type="button" data-close-cart aria-label="Закрыть">×</button>
+        </div>
+        <div class="bag-items" data-cart-items></div>
+        <div class="bag-empty" data-cart-empty>Корзина пока пустая. Выберите десерт или соберите торт.</div>
+        <div class="bag-foot">
+          <div><span>Итого</span><strong data-cart-total>0 BYN</strong></div>
+          <a class="action-button hot wide" href="#checkout" data-close-cart>К оформлению</a>
+        </div>
+      </div>
+    </aside>
+
+    <footer class="bottom-marquee" id="contacts">
+      <div class="footer-brand">
+        <span class="logo-word">Lumière</span>
+        <small>Pâtisserie</small>
+        <p>Кондитерская нового вкуса<br />© 2026 Lumière Pâtisserie</p>
+      </div>
+      <div>
+        <strong>Меню</strong>
+        <a href="#collections">Коллекции</a>
+        <a href="#cakes">Торты на заказ</a>
+        <a href="#checkout">Доставка</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div>
+        <strong>Информация</strong>
+        <a href="#about">О нас</a>
+        <a href="#popular">Блог</a>
+        <a href="/admin.html">Админка</a>
+      </div>
+      <div>
+        <strong>Свяжитесь с нами</strong>
+        <span>+7 (495) 123-45-67</span>
+        <span>hello@lumiere-patisserie.ru</span>
+        <span>Москва, ул. Садовая, 12</span>
+      </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/checkout.js"></script>
+    <script src="/js/account.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

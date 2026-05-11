@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Админка - Сахарная Орбита</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="control-body">
+    <header class="control-topbar">
+      <a class="logo-chip" href="/">
+        <span class="logo-sigil">CL</span>
+        <span>
+          <strong>CandyLab Control</strong>
+          <small>live-диспетчерская заказов</small>
+        </span>
+      </a>
+      <button class="action-button cool" type="button" data-logout>Выйти</button>
+    </header>
+
+    <main class="control-layout">
+      <section class="login-dock" data-login-box>
+        <div class="operator-card">
+          <p class="micro-label">Смена оператора</p>
+          <h1>Пульт сладкой выдачи</h1>
+          <p>Используйте данные из `.env`: по умолчанию admin@candy.local / admin12345.</p>
+        </div>
+        <form class="order-form compact" data-login-form>
+          <label>Email<input name="email" type="email" required value="admin@candy.local" /></label>
+          <label>Пароль<input name="password" type="password" required value="admin12345" /></label>
+          <p class="form-message" data-login-message></p>
+          <button class="action-button hot wide" type="submit">Войти</button>
+        </form>
+      </section>
+
+      <section class="orders-hangar hidden" data-orders-console>
+        <div class="deck-heading stacked">
+          <p class="micro-label">Live Socket.IO</p>
+          <h1>Диспетчер заказов</h1>
+          <p data-admin-state>Подключаемся к потоку заказов...</p>
+        </div>
+        <div class="control-metrics">
+          <article><span>Новые</span><strong data-metric-new>0</strong></article>
+          <article><span>Оплачены</span><strong data-metric-paid>0</strong></article>
+          <article><span>Выручка</span><strong data-metric-revenue>0 BYN</strong></article>
+        </div>
+        <div class="orders-viewport">
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Заказ</th>
+                <th>Клиент</th>
+                <th>Состав</th>
+                <th>Получение</th>
+                <th>Сумма</th>
+                <th>Статусы</th>
+              </tr>
+            </thead>
+            <tbody data-orders-table></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
