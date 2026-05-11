@@ -25,6 +25,11 @@
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="top-actions">
+        <div class="auth-actions" data-auth-guest>
+          <button class="ghost-button" type="button" data-open-auth="login">Войти</button>
+          <button class="soft-button compact" type="button" data-open-auth="register">Регистрация</button>
+        </div>
+        <a class="soft-button compact hidden" href="#account" data-auth-user>Кабинет</a>
         <button class="bag-icon" type="button" data-open-cart aria-label="Открыть корзину">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 9V7a5 5 0 0 1 10 0v2" />
@@ -165,26 +170,14 @@
 
         <div class="account-grid">
           <div class="account-auth" data-account-auth>
-            <div class="account-tabs" role="tablist" aria-label="Вход или регистрация">
-              <button class="active" type="button" data-account-tab="login">Вход</button>
-              <button type="button" data-account-tab="register">Регистрация</button>
+            <div class="auth-card-copy">
+              <h3>Начните с аккаунта</h3>
+              <p>Войдите, чтобы увидеть свои заказы, или создайте профиль перед первым оформлением.</p>
             </div>
-
-            <form class="account-form" data-login-form-public>
-              <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
-              <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
-              <p class="form-message" data-account-message></p>
-              <button class="action-button hot wide" type="submit">Войти</button>
-            </form>
-
-            <form class="account-form hidden" data-register-form>
-              <label>Имя<input name="name" required minlength="2" placeholder="Анна" /></label>
-              <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
-              <label>Телефон<input name="phone" required placeholder="+375 29 123-45-67" /></label>
-              <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
-              <p class="form-message" data-register-message></p>
-              <button class="action-button hot wide" type="submit">Создать аккаунт</button>
-            </form>
+            <div class="auth-choice-row">
+              <button class="action-button hot" type="button" data-open-auth="login">Войти</button>
+              <button class="soft-button" type="button" data-open-auth="register">Регистрация</button>
+            </div>
           </div>
 
           <div class="account-panel hidden" data-account-panel>
@@ -275,6 +268,40 @@
           <div><span>Итого</span><strong data-cart-total>0 BYN</strong></div>
           <a class="action-button hot wide" href="#checkout" data-close-cart>К оформлению</a>
         </div>
+      </div>
+    </aside>
+
+    <aside class="auth-modal hidden" data-auth-modal aria-hidden="true">
+      <div class="auth-modal-backdrop" data-close-auth></div>
+      <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-dialog-title">
+        <button class="close-orb" type="button" data-close-auth aria-label="Закрыть">×</button>
+
+        <div class="auth-modal-head">
+          <p class="micro-label">Личный кабинет</p>
+          <h2 id="auth-dialog-title" data-auth-title>Вход</h2>
+          <p data-auth-subtitle>Войдите, чтобы видеть историю заказов и статусы приготовления.</p>
+        </div>
+
+        <div class="account-tabs" role="tablist" aria-label="Вход или регистрация">
+          <button class="active" type="button" data-account-tab="login">Вход</button>
+          <button type="button" data-account-tab="register">Регистрация</button>
+        </div>
+
+        <form class="account-form" data-login-form-public>
+          <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
+          <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
+          <p class="form-message" data-account-message></p>
+          <button class="action-button hot wide" type="submit">Войти</button>
+        </form>
+
+        <form class="account-form hidden" data-register-form>
+          <label>Имя<input name="name" required minlength="2" placeholder="Анна" /></label>
+          <label>Email<input name="email" type="email" required placeholder="anna@mail.com" /></label>
+          <label>Телефон<input name="phone" required placeholder="+375 29 123-45-67" /></label>
+          <label>Пароль<input name="password" type="password" required minlength="6" placeholder="Минимум 6 символов" /></label>
+          <p class="form-message" data-register-message></p>
+          <button class="action-button hot wide" type="submit">Создать аккаунт</button>
+        </form>
       </div>
     </aside>
 

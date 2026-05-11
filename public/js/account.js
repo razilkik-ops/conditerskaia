@@ -10,6 +10,11 @@ const accountMessage = document.querySelector("[data-account-message]");
 const registerMessage = document.querySelector("[data-register-message]");
 const publicLoginForm = document.querySelector("[data-login-form-public]");
 const registerForm = document.querySelector("[data-register-form]");
+const authModal = document.querySelector("[data-auth-modal]");
+const authTitle = document.querySelector("[data-auth-title]");
+const authSubtitle = document.querySelector("[data-auth-subtitle]");
+const authGuestControls = document.querySelectorAll("[data-auth-guest]");
+const authUserControls = document.querySelectorAll("[data-auth-user]");
 
 let currentAccount = null;
 
@@ -27,6 +32,17 @@ const PAYMENT_LABELS = {
   PAID: "Оплачен",
   FAILED: "Ошибка оплаты",
   REFUNDED: "Возврат"
+};
+
+const AUTH_COPY = {
+  login: {
+    title: "Вход",
+    subtitle: "Войдите, чтобы видеть историю заказов и статусы приготовления."
+  },
+  register: {
+    title: "Регистрация",
+    subtitle: "Создайте профиль, чтобы быстрее оформлять заказы и получать историю покупок."
+  }
 };
 
 function accountEscape(value = "") {
@@ -73,6 +89,8 @@ function renderAccount(user) {
   currentAccount = user;
   accountAuth?.classList.toggle("hidden", Boolean(user));
   accountPanel?.classList.toggle("hidden", !user);
+  authGuestControls.forEach((control) => control.classList.toggle("hidden", Boolean(user)));
+  authUserControls.forEach((control) => control.classList.toggle("hidden", !user));
 
   if (!user) return;
 
@@ -147,10 +165,39 @@ function setTab(tab) {
   });
   publicLoginForm?.classList.toggle("hidden", tab !== "login");
   registerForm?.classList.toggle("hidden", tab !== "register");
+
+  const copy = AUTH_COPY[tab] || AUTH_COPY.login;
+  if (authTitle) authTitle.textContent = copy.title;
+  if (authSubtitle) authSubtitle.textContent = copy.subtitle;
+}
+
+function openAuthModal(tab = "login") {
+  setTab(tab);
+  accountMessage.textContent = "";
+  registerMessage.textContent = "";
+  authModal?.classList.remove("hidden");
+  authModal?.setAttribute("aria-hidden", "false");
+  const firstInput = tab === "register"
+    ? registerForm?.querySelector("input")
+    : publicLoginForm?.querySelector("input");
+  firstInput?.focus();
+}
+
+function closeAuthModal() {
+  authModal?.classList.add("hidden");
+  authModal?.setAttribute("aria-hidden", "true");
 }
 
 document.querySelectorAll("[data-account-tab]").forEach((button) => {
   button.addEventListener("click", () => setTab(button.dataset.accountTab));
+});
+
+document.querySelectorAll("[data-open-auth]").forEach((button) => {
+  button.addEventListener("click", () => openAuthModal(button.dataset.openAuth));
+});
+
+document.querySelectorAll("[data-close-auth]").forEach((button) => {
+  button.addEventListener("click", closeAuthModal);
 });
 
 publicLoginForm?.addEventListener("submit", async (event) => {
@@ -160,6 +207,7 @@ publicLoginForm?.addEventListener("submit", async (event) => {
   try {
     const { user } = await Api.login(Object.fromEntries(new FormData(publicLoginForm)));
     renderAccount(user);
+    closeAuthModal();
   } catch (error) {
     accountMessage.textContent = error.message;
     accountMessage.className = "form-message error";
@@ -173,6 +221,7 @@ registerForm?.addEventListener("submit", async (event) => {
   try {
     const { user } = await Api.register(Object.fromEntries(new FormData(registerForm)));
     renderAccount(user);
+    closeAuthModal();
   } catch (error) {
     registerMessage.textContent = error.message;
     registerMessage.className = "form-message error";
@@ -189,6 +238,9 @@ document.querySelector("[data-account-logout]")?.addEventListener("click", async
 document.querySelector("[data-refresh-orders]")?.addEventListener("click", loadAccountOrders);
 window.addEventListener("cart:changed", renderAccountCart);
 window.addEventListener("account:refresh-orders", loadAccountOrders);
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeAuthModal();
+});
 
 Api.me()
   .then(({ user }) => renderAccount(user && !user.isAdmin ? user : null))
